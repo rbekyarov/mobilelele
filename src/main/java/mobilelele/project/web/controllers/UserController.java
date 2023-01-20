@@ -1,5 +1,6 @@
 package mobilelele.project.web.controllers;
 
+import mobilelele.project.domain.entities.dto.UseRegisterBindingDTO;
 import mobilelele.project.domain.entities.dto.UserDTO;
 import mobilelele.project.service.RoleService;
 import mobilelele.project.service.UserService;
@@ -32,7 +33,7 @@ public class UserController extends BaseController{
     }
 
     @PostMapping("/register")
-    public ModelAndView registerConfirm(@ModelAttribute(name = "model") UserRegisterBindinDTO model) {
+    public ModelAndView registerConfirm(@ModelAttribute(name = "model") UseRegisterBindingDTO model) {
         this.userService.register(modelMapper.map(model, UserDTO.class));
         return super.redirect("/");
     }
